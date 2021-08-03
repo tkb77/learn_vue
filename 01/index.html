@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <div id="app">
+        <p>現在{{ number }}回クリックされています</p>
+        <button @click="countUp">カウントアップ</button>
+        <button @click="countDown">カウントダウン</button>
+        <p>{{numberEvenMethods()}}</p> 
+        <p>{{numberEvenComputed}}</p>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                number: 0,
+            },
+            methods: {
+                countUp: function(){
+                    this.number += 1
+                },
+                countDown: function(){
+                    this.number -= 1
+                },
+                numberEvenMethods: function(){
+                    console.log("Methods")
+                    return this.number % 2 == 0 ? "偶数" : "奇数"
+                }
+            },
+            computed: {
+                numberEvenComputed: function(){
+                    console.log("Computed")
+                    return this.number % 2 == 0 ? "偶数" : "奇数"
+                }
+            }
+
+        })
+    </script>
+</body>
+</html>
