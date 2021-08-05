@@ -13,12 +13,18 @@
         <button @click="countDown">カウントダウン</button>
         <p>{{numberEvenMethods()}}</p> 
         <p>{{numberEvenComputed}}</p>
+        <p v-text="message"></p>
+        <p v-html="html">aa</p>
+        <a v-bind:href="url">aaa</a>
     </div>
     <script>
         new Vue({
             el: '#app',
             data: {
                 number: 0,
+                message: 'hi',
+                html: "<h1>aaa</h1>",
+                url: "https://www.google.co.jp/"
             },
             methods: {
                 countUp: function(){
